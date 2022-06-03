@@ -1,11 +1,11 @@
 ## Chapa Payment Gateway Plugin for WooCommerce 
-Contributors: isrugeek, Kidus363
-Tags: woo, woocommerce, payment, chapa, ethiopia, etb
-Requires at least: 4.5
-Tested up to: 5.9.2
-Stable tag: 1.0
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+**Contributors:** isrugeek, Kidus363
+**Tags:** woo, woocommerce, payment, chapa, ethiopia, etb
+**Requires at least:** 4.5
+**Tested up to:** 5.9.2
+**Stable tag:** 1.0
+**License:** GPLv2 or later
+**License URI:** http://www.gnu.org/licenses/gpl-2.0.html
 
 Add Chapa payment method to your Woocommerce store and start accepting money.
 
@@ -28,7 +28,7 @@ With this Chapa WooCommerce Payment Gateway plugin, you will be able to accept t
 * __Local Bank Transfers__
 * __Mobile Money__
 
-###### Note
+##### Note
 
 This plugin is meant to be used by merchants in Ethiopia.
 
