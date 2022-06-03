@@ -1,9 +1,6 @@
 # Log files
 *.log
-
 # htaccess
 /.htaccess
-
 .DS_Store
-
 chapa-woocommerce.zip
