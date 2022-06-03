@@ -90,7 +90,7 @@ To configure the plugin, go to __WooCommerce > Settings__ from the left hand men
 
 ##### Frequently Asked Questions 
 
-####### What Do I Need To Use The Plugi?
+##### What Do I Need To Use The Plugin?
 
 1.	You need to have WooCommerce plugin installed and activated on your WordPress site.
 2.	You need to open a Chapa merchant account on [Chapa](https://chapa.co)
