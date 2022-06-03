@@ -47,7 +47,7 @@ This plugin is meant to be used by merchants in Ethiopia.
 
 ##### Suggestions / Feature Request
 
-If you have suggestions or a new feature request, feel free to get in touch with us here[here](https://chapa.co/contact/)
+If you have suggestions or a new feature request, feel free to get in touch with us [here](https://chapa.co/contact/)
 
 You can also follow us on Twitter! **[@chapa_et](https://twitter.com/chapa_et)**
 
