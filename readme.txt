@@ -2,7 +2,7 @@
 Contributors: isrugeek, Kidus363
 Tags: woo, woocommerce, payment, chapa, ethiopia, etb
 Requires at least: 4.5
-Tested up to: 6.0
+Tested up to: 6.0.2
 Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -15,7 +15,7 @@ This is a Chapa payment gateway for WooCommerce.
 
 Chapa is on a mission to connect Ethiopia with the global economy. Chapa provide Ethiopian merchants with the tools and services needed to accept online payments from local and international customers using Mastercard, Visa, Amex, Discovery, International and Local Bank Accounts.
 
-To signup for a Chapa Merchant account visit their website by clicking [here](https://chapa.co)
+To signup for a Chapa Merchant account visit our website by clicking [here](https://dashboard.chapa.co/register)
 
 Chapa WooCommerce Payment Gateway allows you to accept payment on your WooCommerce store using Mastercard, Visa, Amex, Discovery, International and Local Bank Accounts.
 
@@ -86,7 +86,7 @@ To configure the plugin, go to __WooCommerce > Settings__ from the left hand men
 = What Do I Need To Use The Plugin =
 
 1.	You need to have WooCommerce plugin installed and activated on your WordPress site.
-2.	You need to open a Chapa merchant account on [Chapa](https://chapa.co)
+2.	You need to open a Chapa merchant account on [Chapa](https://dashboard.chapa.co)
 
 == Changelog ==
 
