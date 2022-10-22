@@ -1,6 +1,6 @@
 === Chapa Payment Gateway Plugin for WooCommerce ===
-Contributors: isrugeek, Kidus363
-Tags: woo, woocommerce, payment, chapa, ethiopia, etb
+Contributors: isrugeek, kidus363
+Tags: woocommerce, payments, chapa, ethiopia, etb, telebirr, wordpress
 Requires at least: 4.5
 Tested up to: 6.0.2
 Stable tag: 1.0
