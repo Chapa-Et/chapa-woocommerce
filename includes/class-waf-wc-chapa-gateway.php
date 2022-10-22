@@ -214,7 +214,7 @@ class WAF_WC_CHAPA_Gateway extends WC_Payment_Gateway
                 'type'        => 'textarea',
                 'description' => __('This controls the payment method description which the user sees during checkout.', 'woo-chapa'),
                 'desc_tip'    => false,
-                'default'     => __('Pay using your ATM, Bank account, Mobile money, Debit and Credit card', 'woo-chapa'),
+                'default'     => __('Pay using your telebirr, CBE Birr, ATM, Bank account, Mobile money, PayPal ,Debit and Credit card', 'woo-chapa'),
             ),
             'invoice_prefix' => array(
                 'title'       => __('Invoice Prefix', 'woo-chapa'),

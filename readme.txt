@@ -13,14 +13,17 @@ Add Chapa payment method to your Woocommerce store and start accepting money.
 
 This is a Chapa payment gateway for WooCommerce.
 
-Chapa is on a mission to connect Ethiopia with the global economy. Chapa provide Ethiopian merchants with the tools and services needed to accept online payments from local and international customers using Mastercard, Visa, Amex, Discovery, International and Local Bank Accounts.
+Chapa is on a mission to connect Ethiopia with the global economy. Chapa provide Ethiopian merchants with the tools and services needed to accept online payments from local and international customers using telebirr, CBE Birr, PayPal, Mastercard, Visa, Amex, Discovery, International and Local Bank Accounts.
 
 To signup for a Chapa Merchant account visit our website by clicking [here](https://dashboard.chapa.co/register)
 
-Chapa WooCommerce Payment Gateway allows you to accept payment on your WooCommerce store using Mastercard, Visa, Amex, Discovery, International and Local Bank Accounts.
+Chapa WooCommerce Payment Gateway allows you to accept payment on your WooCommerce store using telebirr, CBE Birr, PayPal, Mastercard, Visa, Amex, Discovery, International and Local Bank Accounts.
 
 With this Chapa WooCommerce Payment Gateway plugin, you will be able to accept the following payment methods in your shop:
-
+* __telebirr__
+* __Local Bank Cards__
+* __CBE Birr__
+* __PayPal__
 * __Mastercard__
 * __Visa__
 * __Amex__
