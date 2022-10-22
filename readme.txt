@@ -3,7 +3,7 @@ Contributors: isrugeek, kidus363
 Tags: woocommerce, payments, chapa, ethiopia, etb, telebirr, wordpress
 Requires at least: 4.5
 Tested up to: 6.0.2
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -94,5 +94,5 @@ To configure the plugin, go to __WooCommerce > Settings__ from the left hand men
 == Changelog ==
 
 
-= 1.0 =
+= 1.0.1 =
 * Initial version
