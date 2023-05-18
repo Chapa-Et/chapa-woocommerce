@@ -2,7 +2,7 @@
 Contributors: isrugeek, kidus363
 Tags: woocommerce, payments, chapa, ethiopia, etb, telebirr, wordpress
 Requires at least: 4.5
-Tested up to: 6.0.2
+Tested up to: 6.2.1
 Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -23,6 +23,9 @@ With this Chapa WooCommerce Payment Gateway plugin, you will be able to accept t
 * __telebirr__
 * __Local Bank Cards__
 * __CBE Birr__
+* __Amole__
+* __HelloCash__
+* __E-Birr__
 * __PayPal__
 * __Mastercard__
 * __Visa__
