@@ -34,7 +34,17 @@ function waf_wc_chapa_init() {
     add_filter( 'woocommerce_available_payment_gateways', 'conditionally_hide_waf_chapa_payment_gateways' );
 
 }
+add_action( 'before_woocommerce_init', 'waf_wc_chapa_before_init');
 add_action( 'plugins_loaded', 'waf_wc_chapa_init' );
+
+/**
+ * before woocommerce init
+ */
+function waf_wc_chapa_before_init() {
+	if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+		\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
+	}
+}
 
 
 /**
