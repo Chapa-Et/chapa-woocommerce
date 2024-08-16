@@ -3,12 +3,12 @@
 	Plugin Name:			Chapa Payment Gateway Plugin for WooCommerce
 	Plugin URI: 			https://chapa.co/
 	Description:            Chapa Payment Gateway Plugin for WooCommerce
-	Version:                1.0.1
+	Version:                1.0.2
 	Author: 				Chapa
 	License:        		GPL-2.0+
 	License URI:    		http://www.gnu.org/licenses/gpl-2.0.txt
 	WC requires at least:   3.0.0
-	WC tested up to:        6.3.1
+	WC tested up to:        6.6.1
 */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -19,7 +19,7 @@ define( 'WAF_WC_CHAPA_MAIN_FILE', __FILE__ );
 
 define( 'WAF_WC_CHAPA_URL', untrailingslashit( plugins_url( '/', __FILE__ ) ) );
 
-define( 'WAF_WC_CHAPA_VERSION', '1.0.1' );
+define( 'WAF_WC_CHAPA_VERSION', '1.0.2' );
 
 /**
  * Initialize Chapa WooCommerce payment gateway.
