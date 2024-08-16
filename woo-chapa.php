@@ -1,14 +1,17 @@
 <?php
 /*
-	Plugin Name:			Chapa Payment Gateway Plugin for WooCommerce
-	Plugin URI: 			https://chapa.co/
-	Description:            Chapa Payment Gateway Plugin for WooCommerce
-	Version:                1.0.2
-	Author: 				Chapa
-	License:        		GPL-2.0+
-	License URI:    		http://www.gnu.org/licenses/gpl-2.0.txt
-	WC requires at least:   3.0.0
-	WC tested up to:        6.6.1
+	Plugin Name:       Chapa Payment Gateway Plugin for WooCommerce
+	Plugin URI:        https://chapa.co/
+	Description:       Add Chapa payment gateway to your WooCommerce store and start accepting payments.
+	Version:           1.0.2
+	Author:            Chapa
+	Author URI:        https://chapa.co/
+	License:           GPL-2.0+
+	License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+	Text Domain:       chapa-woocommerce
+	Domain Path:       /languages
+	WC requires at least: 3.0.0
+	WC tested up to:   6.6.1
 */
 
 if ( ! defined( 'ABSPATH' ) ) {
