@@ -110,4 +110,4 @@ To configure the plugin, go to __WooCommerce > Settings__ from the left hand men
 
 = 1.0.2 = 
 
-* Support latest version of Woocommerce 
+* Support latest version of Woocommerce
