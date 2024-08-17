@@ -70,7 +70,7 @@ class WAF_WC_CHAPA_Gateway extends WC_Payment_Gateway
      */
     public function __construct()
     {
-        $this->id                 = 'waf_chapa';
+        $this->id                 = 'chapa';
         $this->method_title       = 'Chapa';
         $this->order_button_text = __('Proceed to Chapa', 'woocommerce');
         $this->method_title      = __('Chapa', 'woocommerce');
@@ -148,7 +148,7 @@ class WAF_WC_CHAPA_Gateway extends WC_Payment_Gateway
 
         // Check required fields.
         if (!($this->public_key && $this->secret_key)) {
-            echo '<div class="error"><p>' . sprintf('Please enter your Chapa API details <a href="%s">here</a> to be able to use the Chapa WooCommerce plugin.', admin_url('admin.php?page=wc-settings&tab=checkout&section=waf_chapa')) . '</p></div>';
+            echo '<div class="error"><p>' . sprintf('Please enter your Chapa API details <a href="%s">here</a> to be able to use the Chapa WooCommerce plugin.', admin_url('admin.php?page=wc-settings&tab=checkout&section=wafchapa')) . '</p></div>';
             return;
         }
     }
