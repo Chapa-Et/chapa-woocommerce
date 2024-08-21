@@ -69,15 +69,6 @@ final class WC_Gateway_Chapa_Blocks_Support extends AbstractPaymentMethodType
 			$script_asset['version'],
 			true
 		);
-		// add_action('wp_enqueue_scripts', function () {
-		// 	wp_enqueue_script(
-		// 		'wc-chapa-payments-blocks',
-		// 		WC_Chapa_Payments::plugin_url() . '/assets/js/blocks.js',
-		// 		['jquery'], // Add dependencies as needed
-		// 		'1.0.0',
-		// 		true
-		// 	);
-		// });
 
 		wp_localize_script(
 			'wfc-chapa-payments-blocks',
