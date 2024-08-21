@@ -32,6 +32,7 @@ class WC_CHAPA_Payments
 
     public function __construct()
     {
+        add_action( 'before_woocommerce_init', [$this,'waf_wc_chapa_before_init']);
         add_action('plugin_loaded', [$this, 'includes'], 0);
         add_filter('woocommerce_payment_gateways', array($this, 'waf_wc_add_chapa_gateway'));
         add_filter('plugin_action_links_' . plugin_basename(__FILE__), [$this, 'waf_wc_chapa_plugin_action_links']);
@@ -118,6 +119,17 @@ class WC_CHAPA_Payments
         }
         return $available_gateways;
     }
+
+    /**
+     * before woocommerce init
+     */
+    function waf_wc_chapa_before_init()
+    {
+        if (class_exists(\Automattic\WooCommerce\Utilities\FeaturesUtil::class)) {
+            \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility('custom_order_tables', __FILE__, true);
+        }
+    }
+
 
     /**
      * Registers WooCommerce Blocks integration.
