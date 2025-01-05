@@ -2,8 +2,8 @@
 
 Tags: woocommerce, payments, chapa, ethiopia, telebirr
 Requires at least: 4.5
-Tested up to: 6.6.1
-Stable tag: 1.0.2
+Tested up to: 6.7.1
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -103,3 +103,7 @@ To configure the plugin, go to __WooCommerce > Settings__ from the left hand men
 = 1.0.2 =
 
 * Support latest version of Woocommerce 
+
+= 1.0.3 =
+
+* Update payment gateway logic to handle currency discrepancies
