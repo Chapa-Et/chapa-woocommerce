@@ -6,9 +6,9 @@
 
 **Requires at least:** 4.5
 
-**Tested up to:** 6.6.1
+**Tested up to:** 6.7.1
 
-**Stable tag:** 1.0.2
+**Stable tag:** 1.0.3
 
 **License:** GPLv2 or later
 
@@ -112,3 +112,7 @@ To configure the plugin, go to __WooCommerce > Settings__ from the left hand men
 
 * Support latest version of Woocommerce 
 * Update plugin to support WooCommerce payment gateway using Gutenberg blocks
+
+= 1.0.3 =
+
+* Update payment gateway logic to handle currency discrepancies
