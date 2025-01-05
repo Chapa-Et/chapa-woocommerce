@@ -308,11 +308,11 @@ class WAF_WC_CHAPA_Gateway extends WC_Payment_Gateway
                     $reference_id = $chapa_order->data->reference;
                     $order_currency = $wc_order->get_currency();
                     $currency_symbol = get_woocommerce_currency_symbol($order_currency);
-                    if ($amount_paid < $order_total) {
+                    if (($amount_paid < $order_total) || ($order_currency !== $chapa_order->data->currency)) {
                         // Mark as on-hold
                         $wc_order->update_status('on-hold', '');
                         update_post_meta($order_id, '_transaction_id', $reference_id);
-                        $notice      = 'Thank you for shopping with us.<br />Your payment was successful, but the amount paid is not the same as the total order amount.<br />Your order is currently on-hold.<br />Kindly contact us for more information regarding your order and payment status.';
+                        $notice      = 'Thank you for shopping with us.<br />Your payment was successful, but the amount paid or currency is not the same as the total order amount.<br />Your order is currently on-hold.<br />Kindly contact us for more information regarding your order and payment status.';
                         $notice_type = 'notice';
                         // Add Customer Order Note
                         $wc_order->add_order_note($notice, 1);
