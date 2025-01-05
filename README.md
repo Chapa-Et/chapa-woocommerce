@@ -1,14 +1,14 @@
 # Chapa Payment Gateway Plugin for WooCommerce 
 
-**Contributors:** isrugeek, Kidus363
+**Contributors:** [Israel Goytom](https://github.com/isrugeek), [Kidus Yared](https://github.com/kidus363), [Dawit Zewdu](https://github.com/dawit2123), [Mebratu Kumera](https://github.com)
 
-**Tags:** woo, woocommerce, payment, chapa, ethiopia, etb
+**Tags:** woocommerce, payments, chapa, ethiopia, etb, telebirr, wordpress
 
 **Requires at least:** 4.5
 
-**Tested up to:** 6.0
+**Tested up to:** 6.6.1
 
-**Stable tag:** 1.0
+**Stable tag:** 1.0.2
 
 **License:** GPLv2 or later
 
@@ -20,14 +20,21 @@ Add Chapa payment method to your Woocommerce store and start accepting money.
 
 This is a Chapa payment gateway for WooCommerce.
 
-Chapa is on a mission to connect Ethiopia with the global economy. Chapa provide Ethiopian merchants with the tools and services needed to accept online payments from local and international customers using Mastercard, Visa, Amex, Discovery, International and Local Bank Accounts.
+Chapa is on a mission to connect Ethiopia with the global economy. Chapa provide Ethiopian merchants with the tools and services needed to accept online payments from local and international customers using telebirr, CBE Birr, PayPal, Mastercard, Visa, Amex, Discovery, International and Local Bank Accounts.
 
-To signup for a Chapa Merchant account visit their website by clicking [here](https://chapa.co)
+To signup for a Chapa Merchant account visit our website by clicking [here](https://dashboard.chapa.co/register)
 
-Chapa WooCommerce Payment Gateway allows you to accept payment on your WooCommerce store using Mastercard, Visa, Amex, Discovery, International and Local Bank Accounts.
+Chapa WooCommerce Payment Gateway allows you to accept payment on your WooCommerce store using telebirr, CBE Birr, PayPal, Mastercard, Visa, Amex, Discovery, International and Local Bank Accounts.
 
 With this Chapa WooCommerce Payment Gateway plugin, you will be able to accept the following payment methods in your shop:
 
+* __telebirr__
+* __Local Bank Cards__
+* __CBE Birr__
+* __Amole__
+* __HelloCash__
+* __E-Birr__
+* __PayPal__
 * __Mastercard__
 * __Visa__
 * __Amex__
@@ -93,10 +100,15 @@ To configure the plugin, go to __WooCommerce > Settings__ from the left hand men
 ##### What Do I Need To Use The Plugin?
 
 1.	You need to have WooCommerce plugin installed and activated on your WordPress site.
-2.	You need to open a Chapa merchant account on [Chapa](https://chapa.co)
+2.	You need to open a Chapa merchant account on [Chapa](https://dashboard.chapa.co)
 
 == Changelog ==
 
 
-= 1.0 =
+= 1.0.1 =
 * Initial version
+
+= 1.0.2 = 
+
+* Support latest version of Woocommerce 
+* Update plugin to support WooCommerce payment gateway using Gutenberg blocks

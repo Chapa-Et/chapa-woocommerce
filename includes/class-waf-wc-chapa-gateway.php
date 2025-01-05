@@ -70,7 +70,7 @@ class WAF_WC_CHAPA_Gateway extends WC_Payment_Gateway
      */
     public function __construct()
     {
-        $this->id                 = 'waf_chapa';
+        $this->id                 = 'chapa';
         $this->method_title       = 'Chapa';
         $this->order_button_text = __('Proceed to Chapa', 'woocommerce');
         $this->method_title      = __('Chapa', 'woocommerce');
@@ -148,7 +148,7 @@ class WAF_WC_CHAPA_Gateway extends WC_Payment_Gateway
 
         // Check required fields.
         if (!($this->public_key && $this->secret_key)) {
-            echo '<div class="error"><p>' . sprintf('Please enter your Chapa API details <a href="%s">here</a> to be able to use the Chapa WooCommerce plugin.', admin_url('admin.php?page=wc-settings&tab=checkout&section=waf_chapa')) . '</p></div>';
+            echo '<div class="error"><p>' . sprintf('Please enter your Chapa API details <a href="%s">here</a> to be able to use the Chapa WooCommerce plugin.', admin_url('admin.php?page=wc-settings&tab=checkout&section=wafchapa')) . '</p></div>';
             return;
         }
     }
@@ -214,7 +214,7 @@ class WAF_WC_CHAPA_Gateway extends WC_Payment_Gateway
                 'type'        => 'textarea',
                 'description' => __('This controls the payment method description which the user sees during checkout.', 'woo-chapa'),
                 'desc_tip'    => false,
-                'default'     => __('Pay using your ATM, Bank account, Mobile money, Debit and Credit card', 'woo-chapa'),
+                'default'     => __('Pay using your telebirr, CBE Birr, ATM, Bank account, Mobile money, PayPal ,Debit and Credit card', 'woo-chapa'),
             ),
             'invoice_prefix' => array(
                 'title'       => __('Invoice Prefix', 'woo-chapa'),

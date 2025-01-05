@@ -1,0 +1,24 @@
+{
+  "name": "chapa-payment-gateway-for-woocommerce",
+  "title": "Chapa Payment Gateway Plugin for WooCommerce",
+  "version": "1.0.2",
+  "author": "Chapa",
+  "description": "=== Chapa Payment Gateway Plugin for WooCommerce === Contributors: isrugeek, kidus363, aronikakume1211 Tags: woocommerce, payments, chapa, ethiopia, etb, telebirr, wordpress Requires at least: 4.5 Tested up to: 6.2.1 Stable tag: 1.0.2 License: GPLv2 or later License URI: http://www.gnu.org/licenses/gpl-2.0.html",
+  "license": "ISC",
+  "keywords": [],
+  "engines": {
+    "node": "^20.12.0",
+    "npm": "^10.5.0"
+  },
+  "devDependencies": {
+    "@woocommerce/dependency-extraction-webpack-plugin": "2.2.0",
+    "@wordpress/scripts": "^30.0.2",
+    "cross-env": "7.0.3"
+  },
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build",
+    "packages-update": "wp-scripts packages-update",
+    "check-engines": "wp-scripts check-engines"
+  }
+}
