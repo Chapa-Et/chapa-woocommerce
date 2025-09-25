@@ -7,3 +7,6 @@ chapa-woocommerce.zip
 update-plugin.sh
 chapa-payment-gateway-for-woocommerce/
 node_modules
+
+# IDE settings
+.idea/
