@@ -150,17 +150,7 @@ class WAF_WC_CHAPA_Gateway extends WC_Payment_Gateway
 
         // Check required fields.
         if (!($this->public_key && $this->secret_key)) {
-            // Provide both the current settings link and the legacy one for backward compatibility.
-            $sections = array_unique(array( $this->id, 'wafchapa' ));
-            foreach ($sections as $section) {
-                $url = admin_url('admin.php?page=wc-settings&tab=checkout&section=' . rawurlencode($section));
-                $notice = sprintf(
-                    /* translators: %s is a link to the settings page */
-                    __('Please enter your Chapa API details %s to be able to use the Chapa WooCommerce plugin.', 'woo-chapa'),
-                    '<a href="' . esc_url($url) . '">' . esc_html__('here', 'woo-chapa') . '</a>'
-                );
-                echo '<div class="error"><p>' . wp_kses_post($notice) . '</p></div>';
-            }
+            echo '<div class="error"><p>' . sprintf('Please enter your Chapa API details <a href="%s">here</a> to be able to use the Chapa WooCommerce plugin.', admin_url('admin.php?page=wc-settings&tab=checkout&section=wafchapa')) . '</p></div>';
             return;
         }
     }
