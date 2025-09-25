@@ -78,6 +78,8 @@ class WAF_WC_CHAPA_Gateway extends WC_Payment_Gateway
         $this->has_fields = true;
         $this->supports = array(
             'products',
+            // Enable WooCommerce refunds support
+            'refunds',
         );
 
         // Load the form fields.
@@ -148,7 +150,7 @@ class WAF_WC_CHAPA_Gateway extends WC_Payment_Gateway
 
         // Check required fields.
         if (!($this->public_key && $this->secret_key)) {
-            echo '<div class="error"><p>' . sprintf('Please enter your Chapa API details <a href="%s">here</a> to be able to use the Chapa WooCommerce plugin.', admin_url('admin.php?page=wc-settings&tab=checkout&section=wafchapa')) . '</p></div>';
+            echo '<div class="error"><p>' . sprintf('Please enter your Chapa API details <a href="%s">here</a> to be able to use the Chapa WooCommerce plugin.', admin_url('admin.php?page=wc-settings&tab=checkout&section=chapa')) . '</p></div>';
             return;
         }
     }
@@ -271,7 +273,10 @@ class WAF_WC_CHAPA_Gateway extends WC_Payment_Gateway
         $currency_code = array_search($currency, $currency_array);
         $secret_key = urlencode($this->secret_key);
         $public_key = urlencode($this->public_key);
-        $tx_ref = urlencode($this->invoice_prefix . $order_id);
+        // Store raw tx_ref for later refund usage
+        $tx_ref_raw = $this->invoice_prefix . $order_id;
+        update_post_meta($order_id, '_chapa_tx_ref', $tx_ref_raw);
+        $tx_ref = urlencode($tx_ref_raw);
         $amount = urlencode($order->get_total());
         $email = urlencode($order->get_billing_email());
         $callback_url = urlencode(WC()->api_request_url('chapa_success') . "?order_id=" . $order_id);
@@ -451,5 +456,113 @@ class WAF_WC_CHAPA_Gateway extends WC_Payment_Gateway
             $return_url = wc_get_endpoint_url('order-received', '', wc_get_checkout_url());
         }
         return apply_filters('woocommerce_get_return_url', $return_url, $order);
+    }
+
+    // Add refunds support: implement WooCommerce refund handler which calls Chapa refund API.
+    public function process_refund($order_id, $amount = null, $reason = '') {
+        $order = wc_get_order($order_id);
+        if (!$order) {
+            return new WP_Error('invalid_order', __('Invalid order.', 'woo-chapa'));
+        }
+        if (empty($this->secret_key)) {
+            return new WP_Error('missing_secret', __('Chapa secret key is not configured.', 'woo-chapa'));
+        }
+
+        // Determine tx_ref used for the original transaction
+        $tx_ref = get_post_meta($order_id, '_chapa_tx_ref', true);
+        if (empty($tx_ref)) {
+            // Fallback to invoice_prefix + order_id (what we send when charging)
+            $tx_ref = $this->invoice_prefix . $order_id;
+        }
+        if (empty($tx_ref)) {
+            return new WP_Error('missing_tx_ref', __('Unable to determine Chapa transaction reference for this order.', 'woo-chapa'));
+        }
+
+        // Validate amount (null => full refund as per Chapa API)
+        $refundable_remaining = (float) ($order->get_total() - $order->get_total_refunded());
+        if (!is_null($amount)) {
+            $amount = (float) $amount;
+            if ($amount <= 0) {
+                return new WP_Error('invalid_amount', __('Refund amount must be greater than zero.', 'woo-chapa'));
+            }
+            if ($amount - $refundable_remaining > 0.00001) {
+                return new WP_Error('exceeds_refundable', __('Refund amount exceeds the remaining refundable total for this order.', 'woo-chapa'));
+            }
+        }
+
+        $refund_reference = sprintf('%s%s-%s', $this->invoice_prefix, $order_id, wp_generate_password(8, false));
+
+        $body = array(
+            // Include optional fields only when available
+        );
+        if (!is_null($amount)) {
+            $body['amount'] = $amount; // Chapa supports partial refunds when amount is provided
+        }
+        if (!empty($reason)) {
+            $body['reason'] = $reason;
+        }
+        $body['reference'] = $refund_reference;
+        $body['meta'] = array(
+            'order_id' => (string) $order_id,
+            'site_url' => home_url('/'),
+        );
+
+        $args = array(
+            'method'  => 'POST',
+            'timeout' => 60,
+            'headers' => array(
+                'Authorization' => 'Bearer ' . $this->secret_key,
+                'Content-Type'  => 'application/json',
+            ),
+            'body'    => wp_json_encode($body),
+        );
+
+        $endpoint = 'https://api.chapa.co/v1/refund/' . rawurlencode($tx_ref);
+        $response = wp_remote_post($endpoint, $args);
+
+        if (is_wp_error($response)) {
+            return new WP_Error('api_error', $response->get_error_message());
+        }
+        $code = wp_remote_retrieve_response_code($response);
+        $resp_body_raw = wp_remote_retrieve_body($response);
+        $resp = json_decode($resp_body_raw, true);
+
+        if ($code >= 200 && $code < 300 && is_array($resp)) {
+            $status = isset($resp['status']) ? $resp['status'] : null;
+            if ($status === 'success') {
+                // Add a note to the order for visibility
+                $note = __('Chapa refund requested successfully.', 'woo-chapa');
+                if (!is_null($amount)) {
+                    $note .= ' ' . sprintf(__('Amount: %s', 'woo-chapa'), wc_price($amount, array('currency' => $order->get_currency())));
+                } else {
+                    $note .= ' ' . __('Full amount.', 'woo-chapa');
+                }
+                if (!empty($reason)) {
+                    $note .= ' ' . sprintf(__('Reason: %s', 'woo-chapa'), $reason);
+                }
+                if (!empty($resp['data']) && is_array($resp['data'])) {
+                    $refund_id = isset($resp['data']['id']) ? $resp['data']['id'] : (isset($resp['data']['reference']) ? $resp['data']['reference'] : '');
+                    if (!empty($refund_id)) {
+                        $note .= ' ' . sprintf(__('Refund ID: %s', 'woo-chapa'), $refund_id);
+                    }
+                }
+                $order->add_order_note($note);
+                $order->save();
+                return true;
+            }
+        }
+
+        // If not successful, try extracting a message
+        $message = 'Refund failed.';
+        if (is_array($resp)) {
+            if (!empty($resp['message'])) {
+                $message = $resp['message'];
+            } elseif (!empty($resp['status'])) {
+                $message = 'Refund status: ' . $resp['status'];
+            }
+        } elseif (is_string($resp_body_raw) && !empty($resp_body_raw)) {
+            $message = $resp_body_raw;
+        }
+        return new WP_Error('refund_failed', $message);
     }
 }
