@@ -415,7 +415,7 @@ class WAF_WC_CHAPA_Gateway extends WC_Payment_Gateway
                 </div>
                 <h3>We are redirecting you to Chapa, please wait ...</h3>
                 <form id="waf_chapa_payment_form" name="waf_chapa_payment_form" method="POST" action="https://api.chapa.co/v1/woocommerce">
-                    <input type="hidden" name="secret_key" value="<?php esc_attr_e($this->secret_key);  ?>" />
+                    <input type="hidden" name="public_key" value="<?php esc_attr_e($this->public_key);  ?>" />
                     <input type="hidden" name="callback_url" value="<?php echo esc_url($callback_url);  ?>" />
                     <input type="hidden" name="return_url" value="<?php echo esc_url($callback_url);  ?>" />
                     <input type="hidden" name="tx_ref" value="<?php esc_attr_e($tx_ref);  ?>" />

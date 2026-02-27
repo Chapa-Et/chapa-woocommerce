@@ -6,7 +6,7 @@
 
 **Requires at least:** 4.5
 
-**Tested up to:** 6.7.1
+**Tested up to:** 6.9.1
 
 **Stable tag:** 1.0.3
 
