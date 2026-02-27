@@ -11,7 +11,7 @@
 	Text Domain:       chapa-woocommerce
 	Domain Path:       /languages
 	WC requires at least: 3.0.0
-	WC tested up to:   6.7.1
+	WC tested up to:   6.9.1
 */
 
 if (! defined('ABSPATH')) {
